@@ -6,6 +6,9 @@ I'm someone who loves computation, technology, and maths. Given that, I'm becomi
 
 In an effort to avoid a complete mental breakdown and screaming at people over the internet, I though it might be worth trying to write down some of my thoughts in a blog-like structure, readable by anyone. Although my identity is perfectly discoverable (a quick `whois` would suffice), I'm purposefully not splashing it on this page or any other in order to give myself as much editorial freedom as possible.
 
+## The name
+
+I enjoy Ian M Bank's books, and particularly the names of the ships in the culture series. I picked the name of one ship in particular as the name of this site as a) the domain was available, and b) it felt nice on the tongue.
 
 ## Swing dancing
 
