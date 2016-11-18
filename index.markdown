@@ -6,6 +6,7 @@ I'm a PhD student in computer science who's increasingly pissed off at the techn
 
 **This blog is just me ranting.**
 
+<hr></hr>
 
 ## Recent posts
 
