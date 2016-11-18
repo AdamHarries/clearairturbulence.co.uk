@@ -1,0 +1,5 @@
+---
+title: Previous posts
+---
+ 
+$partial("templates/post-list.html")$
