@@ -2,12 +2,25 @@
 title: A frustrated technologist's ramblings on the modern world
 ---
  
-I'm a PhD student in computer science who's increasingly pissed off at the technology he sees in use around him, and the direction of the general tech world. 
+I'm a PhD student in computer science who's increasingly pissed off at the technology he sees in use around him. I plan on using this blog to rant about some of it.
 
-**This blog is just me ranting.**
+<!-- <style>
+  .bottom-three {
+     margin-bottom: 5cm;
+  }
+</style>
+
+
+<p class="bottom-three">
+   
+</p> -->
 
 <hr></hr>
 
+See the [archive](archive.html) for recent posts.
+
+<!-- 
 ## Recent posts
 
-$partial("templates/post-list.html")$
+
+$partial("templates/post-list.html")$ -->
