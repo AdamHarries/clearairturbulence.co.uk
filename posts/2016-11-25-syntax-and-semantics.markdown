@@ -1,8 +1,12 @@
 ---
 title: Syntax and semantics
 author: PhD
-tags: scala, industry, programming languages
+tags: scala, industry, programming languages, unfinished, in progress
 ---
+
+## Note
+
+This post is unfinished. Take everything I say here with a pinch of salt. 
 
 ## Why the continuum is bad.
 
