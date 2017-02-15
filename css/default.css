@@ -18,8 +18,10 @@ body {
     margin:1em auto;
     max-width:40em;
     padding:0 .62em;
-    /*font-family: 'linear', 'Helvetica', sans-serif;*/
-    font:1.0em/1.62em sans-serif;
+    font-family: 'linear', 'Helvetica', sans-serif;
+    /*font:1.0em/1.62em sans-serif;*/
+    font-size: 16px;
+
 }
 
 @media print{
@@ -74,7 +76,7 @@ div.info {
 
 h1 {
     color: #444;
-    font-size: 40px;
+    font-size: 25px;
     text-align: right;
     border-right: 1px solid #CCCCCC;
     padding-right: 20px;
@@ -83,24 +85,27 @@ h1 {
 
 h2 {
     border-left: 1px solid #CCCCCC;
-    padding-left: 20px;
+    padding-left: 10px;
     color: #444;
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
 }
 
 h3 {
     font-size: 18px;
+    color: #444;
     text-decoration:underline
 }
 
 h4 {
     font-size: 16px;
+    color: #444;
     text-decoration:underline
 }
 
 h5 {
     font-size: 14px;
+    color: #444;
     text-decoration:underline
 }
 

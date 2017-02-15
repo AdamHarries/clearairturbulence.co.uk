@@ -1,10 +1,12 @@
 ---
-title: A frustrated technologist's ramblings on the modern world
+title: Ramblings
 ---
  
-I'm a PhD student in computer science who's increasingly pissed off at the technology he sees in use around him, and the direction of the general tech world. 
+I'm a PhD student in computer science who likes to dance. 
 
-**This blog is just me ranting.**
+I also like to write about computer science and dance.
+
+**This blog is just me ranting. Do not take anything written here seriously.**
 
 <hr></hr>
 
