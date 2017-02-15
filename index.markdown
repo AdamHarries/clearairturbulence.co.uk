@@ -10,6 +10,10 @@ I also like to write about computer science and dance.
 
 <hr></hr>
 
+See the [archive](archive.html) for recent posts.
+
+<!-- 
 ## Recent posts
 
-$partial("templates/post-list.html")$
+
+$partial("templates/post-list.html")$ -->
