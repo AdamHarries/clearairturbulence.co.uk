@@ -1,6 +1,5 @@
 ---
 title: Scala compile times
-author: PhD
 tags: scala, compilers, efficiency, frustration
 ---
 

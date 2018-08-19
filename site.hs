@@ -40,14 +40,14 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
  
-    match "about.markdown" $ do
-        route   $ setExtension "html"
+    match "pages/about.markdown" $ do
+        route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
-    match "archive.markdown" $ do
-        route $ setExtension "html"
+    match "pages/archive.markdown" $ do
+        route $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
             let indexCtx = 

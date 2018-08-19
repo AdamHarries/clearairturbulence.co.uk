@@ -1,6 +1,5 @@
 ---
 title: GHC exited with error -24
-author: PhD
 tags: haskell, GHC, compilers, confusion, documentation
 ---
 

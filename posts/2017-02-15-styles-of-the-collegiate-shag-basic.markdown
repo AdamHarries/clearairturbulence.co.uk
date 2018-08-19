@@ -1,6 +1,5 @@
 ---
 title: Styles of the Collegiate Shag Basic
-author: PhD
 tags: dancing, swing dancing, swing, shag, collegiate shag
 ---
 

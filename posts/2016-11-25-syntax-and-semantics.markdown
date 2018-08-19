@@ -1,6 +1,5 @@
 ---
 title: Syntax and semantics
-author: PhD
 tags: scala, industry, programming languages, unfinished, in progress
 ---
 
