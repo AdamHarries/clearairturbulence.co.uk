@@ -22,7 +22,7 @@ body {
     padding:0 .62em;
     font-family: 'Merriweather', serif;
     font-size: 14px;
-    font-style: 'light';
+    font-weight: 'lighter';
 }
 
 @media print{
@@ -43,7 +43,7 @@ div#break {
 
 div#logo a {
     font-family: 'Raleway', sans-serif;
-    font-style: 'light';
+    font-weight: inherit;
     color: #444;
     float: left;
     font-size: 40px;
@@ -55,9 +55,7 @@ div#navigation {
     text-align: right;
     bottom 0;
     font-size: 12px;
-    font-weight: thin;
-    /*margin-left: 12px;*/
-    
+    font-weight: thin;    
     text-transform: uppercase;
 }
 
@@ -68,12 +66,10 @@ div#navigation a {
 
 div#footer {
     clear: both;
-    border-top: solid 1px #777;
-    
+    border-top: solid 1px #777;    
     color: #555;
     font-size: 12px;
     margin-top: 30px;
-    /*padding: 12px 0px 12px 0px;*/
     text-align: right;
 }
 
@@ -87,21 +83,16 @@ div.info {
     font-size: 14px;
     font-style: italic;
     text-align: right;
-    /*border-right: 1px solid #CCCCCC;*/
-    /*padding-top: 10px;*/
-    /*padding-right: 20px;*/
-    /*margin-bottom: 10px;*/
 }
 
 h1, h2, h3, h4, h5, h6 { 
        /*font-family: 'Merriweather Sans', sans-serif;*/
    font-family: 'Merriweather', serif;
-   font-style: 'light';
-
+   font-weight: inherit;
+   color: #444;
 }
 
 h1 {
-    color: #444;
     font-size: 25px;
     text-align: right;
     border-right: 1px solid #CCCCCC;
@@ -112,26 +103,22 @@ h1 {
 h2 {
     border-left: 1px solid #CCCCCC;
     padding-left: 10px;
-    color: #444;
     font-size: 20px;
     text-align: left;
 }
 
 h3 {
     font-size: 18px;
-    color: #444;
     text-decoration:underline
 }
 
 h4 {
     font-size: 16px;
-    color: #444;
     text-decoration:underline
 }
 
 h5 {
     font-size: 14px;
-    color: #444;
     text-decoration:underline
 }
 
