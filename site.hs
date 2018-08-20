@@ -2,7 +2,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
-
+-- import qualified Data.Set as S
+import           Text.Pandoc.Options
 
 --------------------------------------------------------------------------------
 main :: IO ()
@@ -35,7 +36,7 @@ main = hakyll $ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocMathCompiler
             >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
             >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
@@ -99,3 +100,20 @@ takeAtMost :: Int -> [a] -> [a]
 takeAtMost _ [] = []
 takeAtMost 0 _ = []
 takeAtMost n (x:xs) = x:(takeAtMost (n-1) xs)
+
+pandocMathCompiler :: Compiler (Item String)
+pandocMathCompiler =
+  let
+    mathExtensions =
+      [ Ext_tex_math_dollars
+      , Ext_tex_math_double_backslash
+      , Ext_latex_macros
+      ]
+    defaultExtensions = writerExtensions defaultHakyllWriterOptions
+    newExtensions = foldr enableExtension defaultExtensions mathExtensions
+    writerOptions =
+      defaultHakyllWriterOptions
+      { writerExtensions = newExtensions
+      , writerHTMLMathMethod = MathJax ""
+      }
+    in pandocCompilerWith defaultHakyllReaderOptions writerOptions

@@ -1,0 +1,14 @@
+name: clearairturbulence-co-uk
+
+dependencies:
+  - base
+  - hakyll
+  - pandoc
+
+ghc-options:
+  - -Wall
+  - -threaded
+
+executables:
+  clearairturbulence-co-uk:
+    main: site.hs
