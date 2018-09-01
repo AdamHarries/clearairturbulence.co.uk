@@ -1,5 +1,5 @@
 ---
-title: Previous posts
+title: Unfinished posts
 ---
  
 $partial("templates/post-list.html")$

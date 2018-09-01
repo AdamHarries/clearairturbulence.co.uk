@@ -1,11 +1,11 @@
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
 -- import qualified Data.Set as S
 import           Text.Pandoc.Options
 
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
 
@@ -25,7 +25,6 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
 
-
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -34,23 +33,24 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
-    match "posts/*" $ do
+    match "longform/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
             >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
             >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
- 
-    match "pages/about.markdown" $ do
-        route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
 
-    match "pages/archive.markdown" $ do
+    match "unfinished/*" $ do
+        route $ setExtension "html"
+        compile $ pandocMathCompiler
+            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
+            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
+            >>= relativizeUrls
+    
+    match "pages/longform.markdown" $ do
         route $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
         compile $ do
-            posts <- recentFirst =<< loadAll "posts/*"
+            posts <- recentFirst =<< loadAll "longform/*"
             let indexCtx = 
                     listField "posts" postCtx (return posts) `mappend`
                     defaultContext
@@ -60,6 +60,32 @@ main = hakyll $ do
                 >>= renderPandoc
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
+
+    match "pages/unfinished.markdown" $ do
+        route $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
+        compile $ do
+            posts <- recentFirst =<< loadAll "unfinished/*"
+            let indexCtx = 
+                    listField "posts" postCtx (return posts) `mappend`
+                    defaultContext
+
+            getResourceBody 
+                >>= applyAsTemplate indexCtx
+                >>= renderPandoc
+                >>= loadAndApplyTemplate "templates/default.html" indexCtx
+                >>= relativizeUrls
+
+    match "pages/projects.markdown" $ do
+        route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
+
+    match "pages/about.markdown" $ do
+        route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
 
     match "index.markdown" $ do
         route $ setExtension "html"
@@ -80,7 +106,7 @@ main = hakyll $ do
     match "templates/*" $ compile templateBodyCompiler
 
 
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
@@ -91,10 +117,9 @@ postCtxWithTags tags =
     tagsField "tags" tags `mappend` 
     postCtx
 
-
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 -- Utils
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 takeAtMost :: Int -> [a] -> [a]
 takeAtMost _ [] = []
