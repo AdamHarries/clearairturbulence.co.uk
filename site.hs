@@ -25,55 +25,17 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
 
-    match "images/*" $ do
+    match ("images/*" .||. "css/*") $ do
         route   idRoute
         compile copyFileCompiler
 
-    match "css/*" $ do
-        route   idRoute
-        compile compressCssCompiler
-
-    match "longform/*" $ do
+    match "writing/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
-            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
-            >>= relativizeUrls
-
-    match "unfinished/*" $ do
-        route $ setExtension "html"
-        compile $ pandocMathCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
-            >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
+            >>= loadAndApplyTemplate "templates/default.html" (defaultContext)
+            >>= loadAndApplyTemplate "templates/post.html"    (defaultContext)
             >>= relativizeUrls
     
-    match "pages/longform.markdown" $ do
-        route $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
-        compile $ do
-            posts <- recentFirst =<< loadAll "longform/*"
-            let indexCtx = 
-                    listField "posts" postCtx (return posts) `mappend`
-                    defaultContext
-
-            getResourceBody 
-                >>= applyAsTemplate indexCtx
-                >>= renderPandoc
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
-
-    match "pages/unfinished.markdown" $ do
-        route $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
-        compile $ do
-            posts <- recentFirst =<< loadAll "unfinished/*"
-            let indexCtx = 
-                    listField "posts" postCtx (return posts) `mappend`
-                    defaultContext
-
-            getResourceBody 
-                >>= applyAsTemplate indexCtx
-                >>= renderPandoc
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
 
     match "pages/projects.markdown" $ do
         route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
@@ -86,6 +48,21 @@ main = hakyll $ do
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
+
+    match "pages/writing.markdown" $ do
+        route $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
+        compile $ do
+            posts <- recentFirst =<< loadAll "writing/*"
+            let indexCtx = 
+                    listField "posts" postCtx (return posts) `mappend`
+                    defaultContext
+
+            getResourceBody 
+                >>= applyAsTemplate indexCtx
+                >>= renderPandoc
+                >>= loadAndApplyTemplate "templates/default.html" indexCtx
+                >>= relativizeUrls
+
 
     match "index.markdown" $ do
         route $ setExtension "html"
