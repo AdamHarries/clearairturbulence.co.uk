@@ -12,5 +12,5 @@ ghc-options:
   - -threaded
 
 executables:
-  clearairturbulence-co-uk:
+  site:
     main: site.hs

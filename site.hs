@@ -1,15 +1,12 @@
 -------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
 import           Hakyll
--- import           Hakyll.Core.Metadata
--- import           Hakyll.Core.Identifier.Pattern
--- import qualified Data.Set as S
 import           Text.Pandoc.Options
-import System.Process
+import           System.Process
 import           Control.Monad                   (foldM)
+import           Data.Monoid                     (mappend)
 import           Data.Maybe                      (fromMaybe)
-import Data.List
+import           Data.List                       (find) 
 
 -------------------------------------------------------------------------------
 main :: IO ()
@@ -83,7 +80,7 @@ githubCtx = field "githubLink" $ \item -> do
 modificationCtx :: [(Identifier, String)] -> Context String 
 modificationCtx modificationTimes = field "lastModified" $ \item -> do
     let time = find (\x -> (fst x) == (itemIdentifier item)) modificationTimes >>= return . snd 
-    return $ fromMaybe "no recent modifications" $ time
+    return $ fromMaybe "Post not in git" $ time
 
 buildModifications ::  Pattern -> Rules [(Identifier, String)]
 buildModifications pattern = do 
@@ -92,8 +89,10 @@ buildModifications pattern = do
     return pairs
     where 
         getLastModified l id' = do
-            -- February 15, 2017 
-            lmodtime <- readProcess "git" ["log", "-1", "--format=%ad", "--date=format:%b %d, %Y", (toFilePath id')] ""
+            lmodtime <- readProcess "git" 
+                ["log", "-1", "--format=%ad", "--date=format:%b %d, %Y", 
+                (toFilePath id')] 
+                ""
             return $ (id', lmodtime) : l
 
 
