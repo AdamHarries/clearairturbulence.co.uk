@@ -16,7 +16,8 @@ buildModifications pattern = do
     return pairs
     where 
         getLastModified l id' = do
-            t <- readProcess "git" ["log", "-1", "--format=%ad", "--date=format:%b %d, %Y", (toFilePath id')] ""
+            t <- readProcess "git" 
+                ["log", "-1", "--format=%ad", "--date=format:%b %d, %Y", (toFilePath id')] ""
             return $ (id', t) : l
 ```
 
