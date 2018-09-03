@@ -1,7 +1,7 @@
 ---
 title: Last (git) modification time in Hakyll
 tags: haskell, hakyll, git
-unfinished: true
+abstract: Hakyll gives you lots of lovely defaults, but some things are harder to come by. This post provides a brief description of how to add "last modification time" metadata to each post.
 ---
 
 While working on this site, I wanted to list metadata for each page describing both the time the page was originally written, and the date on which it was last modified. The first is fairly easy, and is included in Hakyll by default: Given a page at a path such as: `writing/2018-08-03-last-git-modification-time-in-haskyll.markdown`, the Hakyll compiler will extract the `2018-08-03` portion of the filepath, and fill in the `$date$` portion of the [template](https://github.com/AdamHarries/clearairturbulence.co.uk/blob/master/templates/post.html) with the formatted date. 
