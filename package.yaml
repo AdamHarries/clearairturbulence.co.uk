@@ -4,6 +4,8 @@ dependencies:
   - base
   - hakyll
   - pandoc
+  - process
+  - time
 
 ghc-options:
   - -Wall

@@ -2,15 +2,28 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+-- import           Hakyll.Core.Metadata
+import           Hakyll.Core.Identifier
+-- import           Hakyll.Core.Identifier.Pattern
 -- import qualified Data.Set as S
 import           Text.Pandoc.Options
 import Debug.Trace
+import System.Process
+import           Control.Monad                   (foldM)
+import           Data.Maybe                      (catMaybes, fromMaybe)
+import Data.Time.Clock
+import Data.List
 
 -------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
 
+    -- buildTags :: MonadMetadata m => Patern -> (String -> Identifier) -> m Tags
     tags <- buildTags "writing/*" (fromCapture "tags/*.html")
+
+    modifications <- buildModifications "writing/*"
+
+    let context = postCtxWithTags tags modifications
 
     tagsRules tags $ \tag pattern -> do
         let title = "Posts tagged \"" ++ tag ++ "\""
@@ -18,7 +31,7 @@ main = hakyll $ do
         compile $ do
             posts <- recentFirst =<< loadAll pattern
             let ctx = constField "title" title
-                      `mappend` listField "posts" (postCtxWithTags tags) (return posts)
+                      `mappend` listField "posts" (context) (return posts)
                       `mappend` defaultContext
 
             makeItem ""
@@ -33,7 +46,7 @@ main = hakyll $ do
     match "writing/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
-            >>= loadAndApplyTemplate "templates/post.html" (postCtxWithTags tags)
+            >>= loadAndApplyTemplate "templates/post.html" (context)
             >>= loadAndApplyTemplate "templates/default.html" (defaultContext)
             >>= relativizeUrls
 
@@ -42,7 +55,7 @@ main = hakyll $ do
         compile $ do
             posts <- recentFirst =<< loadAll "writing/*"
             let indexCtx = 
-                    listField "posts" (postCtxWithTags tags) (return posts) `mappend`
+                    listField "posts" (context) (return posts) `mappend`
                     defaultContext
 
             getResourceBody 
@@ -60,15 +73,32 @@ main = hakyll $ do
     match "templates/*" $ compile templateBodyCompiler
 
 
-postCtxWithTags :: Tags -> Context String
-postCtxWithTags tags = 
+postCtxWithTags :: Tags -> [(Identifier, String)] -> Context String
+postCtxWithTags tags times = 
+    modificationCtx times `mappend` 
     tagsField "tags" tags `mappend` 
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 
--------------------------------------------------------------------------------
--- Utils
--------------------------------------------------------------------------------
+modificationCtx :: [(Identifier, String)] -> Context String 
+modificationCtx modificationTimes = field "lastModified" $ \item -> do
+    let time = find (\x -> (fst x) == (itemIdentifier item)) modificationTimes >>= return . snd 
+    return $ fromMaybe "no recent modifications" $ time
+
+
+
+buildModifications ::  Pattern -> Rules [(Identifier, String)]
+buildModifications pattern = do 
+    ids <- getMatches pattern
+    pairs <- preprocess $ foldM getLastModified [] ids
+    preprocess $ putStrLn $ show pairs
+    return pairs
+    where 
+        getLastModified l id' = do
+            -- February 15, 2017 
+            lmodtime <- readProcess "git" ["log", "-1", "--format=%ad", "--date=format:%b %d, %Y", (toFilePath id')] ""
+            return $ (id', lmodtime) : l
+
 
 pandocMathCompiler :: Compiler (Item String)
 pandocMathCompiler =
