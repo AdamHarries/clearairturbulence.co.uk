@@ -1,10 +1,20 @@
-$body$
-
+$if(unfinished)$ 
+<div class="unfinished">
+Please note, this post is a <a href="/work-in-progress.html">work in progress.</a>
+</div>
+$endif$
+<div class="corecontent">
+	$body$
+</div>
 <div class="info">
-    Posted on $date$
+	$if(date)$
+		Posted on $date$ 
+        </br>
+	$endif$
     $if(author)$
         by $author$
-    $endif$ </br>
+        </br>
+    $endif$
     $if(tags)$
       Tags: $tags$
     $endif$

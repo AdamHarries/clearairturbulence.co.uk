@@ -1,6 +1,7 @@
 ---
 title: Syntax and semantics
 tags: scala, industry, programming languages, unfinished, in progress
+unfinished: true
 ---
 
 ## Note

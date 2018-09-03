@@ -4,12 +4,13 @@ import           Data.Monoid (mappend)
 import           Hakyll
 -- import qualified Data.Set as S
 import           Text.Pandoc.Options
+import Debug.Trace
 
 -------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
 
-    tags <- buildTags "posts/*" (fromCapture "tags/*.html")
+    tags <- buildTags "writing/*" (fromCapture "tags/*.html")
 
     tagsRules tags $ \tag pattern -> do
         let title = "Posts tagged \"" ++ tag ++ "\""
@@ -17,11 +18,11 @@ main = hakyll $ do
         compile $ do
             posts <- recentFirst =<< loadAll pattern
             let ctx = constField "title" title
-                      `mappend` listField "posts" postCtx (return posts)
+                      `mappend` listField "posts" (postCtxWithTags tags) (return posts)
                       `mappend` defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/tag.html" ctx
+                >>= loadAndApplyTemplate "templates/post-list.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
 
@@ -32,21 +33,8 @@ main = hakyll $ do
     match "writing/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
+            >>= loadAndApplyTemplate "templates/post.html" (postCtxWithTags tags)
             >>= loadAndApplyTemplate "templates/default.html" (defaultContext)
-            >>= loadAndApplyTemplate "templates/post.html"    (defaultContext)
-            >>= relativizeUrls
-    
-
-    match "pages/projects.markdown" $ do
-        route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
-
-    match "pages/about.markdown" $ do
-        route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
-        compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
     match "pages/writing.markdown" $ do
@@ -54,7 +42,7 @@ main = hakyll $ do
         compile $ do
             posts <- recentFirst =<< loadAll "writing/*"
             let indexCtx = 
-                    listField "posts" postCtx (return posts) `mappend`
+                    listField "posts" (postCtxWithTags tags) (return posts) `mappend`
                     defaultContext
 
             getResourceBody 
@@ -63,45 +51,24 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
 
-
-    match "index.markdown" $ do
-        route $ setExtension "html"
-        compile $ do
-            posts <- recentFirst 
-                =<< (return . takeAtMost 5) 
-                =<< loadAll "posts/*"
-            let indexCtx = 
-                    listField "posts" postCtx (return posts) `mappend`
-                    defaultContext
-
-            getResourceBody 
-                >>= applyAsTemplate indexCtx
-                >>= renderPandoc
-                >>= loadAndApplyTemplate "templates/default.html" indexCtx
-                >>= relativizeUrls
+    match ("pages/projects.markdown" .||. "pages/index.markdown" .||. "pages/work-in-progress.markdown") $ do
+        route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
 
 
--------------------------------------------------------------------------------
-postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
-
 postCtxWithTags :: Tags -> Context String
 postCtxWithTags tags = 
     tagsField "tags" tags `mappend` 
-    postCtx
+    dateField "date" "%B %e, %Y" `mappend`
+    defaultContext
 
 -------------------------------------------------------------------------------
 -- Utils
 -------------------------------------------------------------------------------
-
-takeAtMost :: Int -> [a] -> [a]
-takeAtMost _ [] = []
-takeAtMost 0 _ = []
-takeAtMost n (x:xs) = x:(takeAtMost (n-1) xs)
 
 pandocMathCompiler :: Compiler (Item String)
 pandocMathCompiler =

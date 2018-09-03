@@ -1,5 +1,8 @@
 ---
 title: Linear Algebra, Semirings and Graph Theory
+tags: linear algebra, maths
+unfinished: true
+abstract: Changing the semiring underlying a given series of linear algebraic operations is an easy, sound, way to change the semantics of the operations, and thus apply linear algebra to new domains. In this post, I discuss some of the mathematical background for this powerful technique, and demonstrate its usefulness in some non-obvious domains. 
 ---
 
 In most applications of linear algebra, such as geometry or linear programming, the elements which make up the matrices, vectors and scalars in the linear system are drawn from either the set of real numbers, $\mathbb{R}$, or the set of integers, $\mathbb{Z}$. It is possible, however, to draw the elements from any valid _semiring_. A semiring is a formal structure from the world of abstract algebra, which allows for a set of operations to be defined on a set, such that any formula using such operations can also operate on the elements of the underlying set of the semiring. This allows many seemingly unrelated problems to be recast in terms of linear algebra (for some examples in the Haskell programming language, see \citet{Dolan:2013:FSF:2500365.2500613}). Two of the algorithms discussed later in the thesis do exactly this, hence our discussion of semirings here.

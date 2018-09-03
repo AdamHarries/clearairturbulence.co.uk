@@ -1,12 +1,7 @@
 <ul>
 $for(posts)$
 <li>
-<a href="$url$">$title$</a> - $date$ $if(tags)$
-    - $tags$
-    $endif$
-    $if(finished)$
-    FINISHED
-    $endif$
+<a href="$url$" >$title$</a>$if(unfinished)$   <a href="/work-in-progress.html"><span class="tag" style="margin-left:5px">Unfinished</span></a>$endif$</br>$if(abstract)$<span class="abstract">$abstract$</span>$endif$$if(tags)$</br><span class="tag">Tagged with: $tags$</span>$endif$
 </li>
 $endfor$
 </ul>
