@@ -3,22 +3,17 @@
 import           Data.Monoid (mappend)
 import           Hakyll
 -- import           Hakyll.Core.Metadata
-import           Hakyll.Core.Identifier
 -- import           Hakyll.Core.Identifier.Pattern
 -- import qualified Data.Set as S
 import           Text.Pandoc.Options
-import Debug.Trace
 import System.Process
 import           Control.Monad                   (foldM)
-import           Data.Maybe                      (catMaybes, fromMaybe)
-import Data.Time.Clock
+import           Data.Maybe                      (fromMaybe)
 import Data.List
 
 -------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
-
-    -- buildTags :: MonadMetadata m => Patern -> (String -> Identifier) -> m Tags
     tags <- buildTags "writing/*" (fromCapture "tags/*.html")
 
     modifications <- buildModifications "writing/*"
@@ -33,7 +28,6 @@ main = hakyll $ do
             let ctx = constField "title" title
                       `mappend` listField "posts" (context) (return posts)
                       `mappend` defaultContext
-
             makeItem ""
                 >>= loadAndApplyTemplate "templates/post-list.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
@@ -76,22 +70,25 @@ main = hakyll $ do
 postCtxWithTags :: Tags -> [(Identifier, String)] -> Context String
 postCtxWithTags tags times = 
     modificationCtx times `mappend` 
+    githubCtx `mappend`
     tagsField "tags" tags `mappend` 
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
+
+githubCtx :: Context String 
+githubCtx = field "githubLink" $ \item -> do 
+    let path = (toFilePath . itemIdentifier) item
+    return $ path
 
 modificationCtx :: [(Identifier, String)] -> Context String 
 modificationCtx modificationTimes = field "lastModified" $ \item -> do
     let time = find (\x -> (fst x) == (itemIdentifier item)) modificationTimes >>= return . snd 
     return $ fromMaybe "no recent modifications" $ time
 
-
-
 buildModifications ::  Pattern -> Rules [(Identifier, String)]
 buildModifications pattern = do 
     ids <- getMatches pattern
     pairs <- preprocess $ foldM getLastModified [] ids
-    preprocess $ putStrLn $ show pairs
     return pairs
     where 
         getLastModified l id' = do
