@@ -1,30 +1,30 @@
-/*html {
-    overflow-y: scroll;
-}*/
-
+/* 
+    Generic settings for the whole file
+*/
 body {
     color: #444;
-    /*background-color: #FCFCFF;*/
-    /*background-color: #FFFFFF;*/
-    /*font-size: 16px;*/
+    background-color: #FFFFFF;
     margin:1em auto;
-    max-width:55em;
-    /*padding:0 .62em;*/
+    max-width:48%;
     font-family: 'Merriweather', serif;
-    font-size: 14px;
-    /*font-weight: 'lighter';*/
+    font-size: 100%;
 }
 
+/* I don't know why this is here? */
 @media print{
     body{
         max-width:none
     }
 }
 
-
+/* 
+    Style the heading, and the break between heading and text 
+*/
 div#break {
     clear: both;
     border-bottom: 1px solid #777;
+    clear: both;
+    padding-top: 0.5em;
     margin-bottom: -1em;
 }
 
@@ -37,13 +37,13 @@ div#header {
 div#logo a {
     color: #444;
     float: left;
-    font-size: 28px;
+    font-size: 170%;
     text-decoration: none;
 }
 
 div#navigation {
     text-align: right;
-    font-size: 12px;
+    font-size: 80%;
     text-transform: uppercase;
 }
 
@@ -52,42 +52,48 @@ div#navigation a {
     text-decoration: none;   
 }
 
+
+/* 
+    Style the footer at the bottom of each page 
+*/
 div#footer {
+    font-family: 'Raleway', sans-serif;
     clear: both;
-    border-top: solid 1px #777;    
+    border-top: solid 1px #777;
+    padding-top: 0.5em;
     color: #555;
-    font-size: 12px;
-    /*margin-top: 30px;*/
+    font-size: 80%;
     text-align: right;
 }
 
+/*  
+    Style the content (main body) of a page 
+*/
 div#content {
     clear: both;
     padding: 0em 1em;
 }
 
-div.corecontent {
-
-}
-
 div.info {
     border-top: solid 1px #CCC;
     color: #555;
-    font-size: 14px;
+    font-size: 85%;
     font-style: italic;
     text-align: right;
     padding: 1em 0em;
 }
 
-span.abstract {
-    font-style: italic;
-    padding: 0px 5px;
+.unfinished { 
+    text-align: center;
+    padding: 0.5em 0em;
+    border: solid 1px #CCC;
+    background: #FEE;
 }
 
 .tag {
-    font-size: 9px;
+    font-size: 65%;
     color: #666;
-    padding: 2px;
+    padding: 0.15em;
     border: solid 1px #EEE;
 }
 
@@ -95,45 +101,49 @@ p {
     padding: 0 1em;
 }
 
+/*
+    Style headings within a body of text 
+*/
 h1, h2, h3, h4, h5, h6 { 
-   /*font-family: 'Merriweather Sans', sans-serif;*/
    font-family: 'Merriweather', serif;
    font-weight: inherit;
-   /*text-decoration: underline;*/
+   font-size: inherit;
    color: #444;
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 190%;
     text-align: right;
-    /*border-right: 1px solid #CCCCCC;*/
-    padding: 10px 00px;
-    margin: 0px 0px;
-    /*margin-bottom: 10px;*/
+    /*padding: 0.5em 0em;*/
+    padding-top: 0.75em;
+    padding-bottom: 0.5em;
+    margin: 0em 0em;
 }
 
 h2 {
-    /*border-left: 1px solid #CCCCCC;*/
-    font-size: 20px;
-    text-align: left;
+    margin-bottom: -0.25em;
+    padding-top: 0.25em;
+    font-size: 140%;
 }
 
 h3 {
-    font-size: 18px;
+    margin-bottom: -0.25em;
+    padding-top: 0.25em;
+    font-size: 120%;
 }
 
 h4 {
-    font-size: 16px;
+    margin-bottom: -0.25em;
+    padding-top: 0.25em;
+    font-size: 100%;
+    text-decoration: underline;
 }
 
 h5 {
-    font-size: 14px;
-}
-
-h6 {
-    color: #777777;
-    background-color: inherit;
-    font-size: 14px;
+    font-size: 80%;
+    margin-bottom: -0.25em;
+    padding-top: 0.25em;
+    text-decoration: underline;
 }
 
 hr {
@@ -143,7 +153,7 @@ hr {
 }
 
 p, blockquote, ul, ol, dl, li, table, pre {
-    margin: 15px 0;
+    margin: 1em 0;
 }
 
 code, pre {
@@ -153,7 +163,7 @@ code, pre {
 }
 
 code {
-    font-size: 12px;
+    /*font-size: 12px;*/
     border: 1px solid #EAEAEA;
     margin: 0 2px;
     padding: 0 5px;
@@ -164,6 +174,11 @@ pre {
     line-height: 1.25em;
     overflow: auto;
     padding: 6px 10px;
+    overflow-x:auto;/* Add scroll bar if code overflows */
+    -moz-tab-size: 6; /*fix massive tabs*/
+    -o-tab-size:   6;
+    tab-size:      6;
+
 }
 
 pre > code {
@@ -173,21 +188,7 @@ pre > code {
 }
 
 /*Link code from: http://mrmrs.io/links/ */
-a {
-  transition: color .4s;
-  color: #265C83;
-  text-decoration: none;
-}
 
-a:link,
-a:visited { color: #265C83; }
-a:hover   { color: #7FDBFF; }
-a:active  {
-  transition: color .3s;
-  color: #007BE6;
-}
-
-.link { text-decoration: none; }
 
 blockquote {
     margin: 1em 3em;
@@ -222,28 +223,24 @@ td.sourceCode { padding-left: 5px; }
 .sourceCode span.re { }
 .sourceCode span.er { color: red; font-weight: bold; }
 
+.sourceLine:hover { color:inherit; }
+
 code {
     font-family: monospace; /*'Fantasque Sans Mono',*/ 
-    font-size: 12px;
 }
 
-pre {
-    /*background: #F3F3F3;*/
-    padding: 5px;
-    margin-left: -5px;
-    overflow-x:auto;/* Add scroll bar if code overflows */
-    -moz-tab-size: 6; /*fix massive tabs*/
-    -o-tab-size:   6;
-    tab-size:      6;
-    margin: inherit -1em;
+a {
+  transition: color .4s;
+  color: #265C83;
+  text-decoration: none;
 }
 
-#homepageCode > pre > code
-{   
-    font-size: 12px !important;
-    white-space: pre-wrap;       
-    white-space: -moz-pre-wrap;  
-    white-space: -pre-wrap;      
-    white-space: -o-pre-wrap;    
-    word-wrap: break-word;       
+a:link,
+a:visited { color: #265C83; }
+a:hover   { color: #7FDBFF; }
+a:active  {
+  transition: color .3s;
+  color: #007BE6;
 }
+
+.link { text-decoration: none; }

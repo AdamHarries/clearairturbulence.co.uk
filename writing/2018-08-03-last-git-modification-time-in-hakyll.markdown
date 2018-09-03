@@ -1,6 +1,7 @@
 ---
 title: Last (git) modification time in Hakyll
 tags: haskell, hakyll, git
+unfinished: true
 abstract: Hakyll gives you lots of lovely defaults, but some things are harder to come by. This post provides a brief description of how to add "last modification time" metadata to each post.
 ---
 

@@ -67,6 +67,19 @@ A slightly more complex algorithm, depth first search might be implemented as fo
 
 - holy shit, can you consider n-connection hyper graphs in terms of linear algebra
 
-### Linear algebra and loop parallelisation
+### (Three) Linear algebra and loop parallelisation
+
+Something about the polyhedral model
+
+#### (Four) The polyhedral model
+
+And maybe something about implemenmting la? idk?
+
+##### (Five) Another layer deeper
+
+Just testing out headings now...
+
+
+###### (Siz) Six layers deep!
 
 ### Linear algebra and semirings

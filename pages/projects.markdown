@@ -2,7 +2,22 @@
 title: Projects.
 ---
 
-Code 'n stuff <!-- 
+Code 'n stuff
+
+## Ellington 
+
+Somethinng about ellington...
+
+
+## Bellson
+
+sopmething about bellson
+
+
+## Smaller projects?
+
+
+ <!-- 
 
 I'm someone who loves computation, technology, and maths. Given that, I'm becoming increasingly dismayed by the direction in which we seem (as an industry) hell bent on pushing technology. With an anti-intellectual thrust that would put the alt-right to shame, we seem keen to throw out any lessons from the past, and discard rigour for cargo culting at every opportunity. The rise of broken languages like Javascript, out-of-memory compile errors on 4GB systems, security-free IoT devices, and the like show the downward spiral that we've put ourselves in.
 
