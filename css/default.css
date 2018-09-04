@@ -167,10 +167,16 @@ h5 {
 }
 
 hr {
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid #CCC;
+}
+
+/*hr {
     height: 1px;
     border: 0;
     color: #FF0000;
-}
+}*/
 
 p, blockquote, ul, ol, dl, li, table, pre {
     margin: 1em 0;

@@ -2,16 +2,31 @@
 title: Projects.
 ---
 
-Code 'n stuff
+## [Ellington](https://github.com/AdamHarries/ellington)
 
-## Ellington 
+> An experimental testbed and tool for tempo detection of swing music, named after the legendary band leader Duke Ellington.  
 
 Somethinng about ellington...
 
+[*Ellington can be found on Github.*](https://github.com/AdamHarries/ellington)
 
-## Bellson
+***
 
-sopmething about bellson
+## [Bellson](https://github.com/AdamHarries/bellson)
+
+> Bellson is an attempt at using deep convolutional neural networks to infer the tempo structure of swing music. Named after Louis Bellson, one of Duke Ellington's drummers. 
+
+Bellson is designed to be a component of Ellington. 
+
+[*Bellson can be found on Github.*](https://github.com/AdamHarries/bellson)
+
+***
+
+## [Collegiate Shag Pins](https://wwwi.nstagram.com/p/Bb-EVGyAvwC/)
+
+![A collegiate shag pin](/images/projects/shagpins/pin.jpg)
+
+Collegiate Shag is a somewhat niche swing dance, with a small community even by the standards of the small swing community. In order to make it easier to find Collegiate Shag dancers at general swing events, I commissioned a run of pins that dancers could wear to indicate that they dance Shag.
 
 
 ## Smaller projects?
