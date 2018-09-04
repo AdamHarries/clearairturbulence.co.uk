@@ -8,6 +8,7 @@ body {
     max-width:48%;
     font-family: 'Merriweather', serif;
     font-size: 100%;
+    font-weight: lighter;
 }
 
 /* I don't know why this is here? */
@@ -100,6 +101,25 @@ div.info {
 p {
     padding: 0 1em;
 }
+
+/* 
+    Style unordered lists so that they're nicer looking
+ */
+ul.postlist {
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+li.postitem {
+    padding-left: 2em;
+}
+
+li.postitem:before {
+    content: "~"; /* Insert content that looks like bullets */
+    /*padding-right: 8px;*/
+    /*color: blue; */
+} 
 
 /*
     Style headings within a body of text 
