@@ -1,7 +1,9 @@
 ---
 title: Scala compile times
 tags: scala, compilers, efficiency, frustration
+date: 2016-11-18
 unfinished: true
+abstract: Programs written in Scala compile really rather slowly. This is a huge cause of frustration when working on large Scala projects.  
 ---
 
 Yesterday saw me merging in some changes from master into an out-of-date feature branch in the project that I work on as part of my PhD. This involved the usual frustration of merge conflicts, and interface changes between the master branch and my code (~4-5 months out of date!) None of those frustrations, however, were quite as bad as how slow scala was to iterate with after I had finished merging.

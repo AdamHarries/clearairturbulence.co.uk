@@ -5,7 +5,7 @@ body {
     color: #444;
     background-color: #FFFFFF;
     margin:1em auto;
-    max-width:48%;
+    max-width:40em;
     font-family: 'Merriweather', serif;
     font-size: 100%;
     font-weight: lighter;
@@ -102,6 +102,31 @@ p {
     padding: 0 1em;
 }
 
+img {
+    /*padding: 0 10%;*/
+    width: 100%;
+    height: auto;
+}
+
+/* 
+    Style unordered lists so that they're nicer looking
+ */
+ul.postlist {
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+li.postitem {
+    padding-left: 2em;
+}
+
+li.postitem:before {
+    content: "~"; /* Insert content that looks like bullets */
+    /*padding-right: 8px;*/
+    /*color: blue; */
+} 
+
 /*
     Style headings within a body of text 
 */
@@ -130,10 +155,11 @@ h2 {
 h3 {
     margin-bottom: -0.25em;
     padding-top: 0.25em;
-    font-size: 120%;
+    font-size: 110%;
 }
 
 h4 {
+    padding: 0 1em;
     margin-bottom: -0.25em;
     padding-top: 0.25em;
     font-size: 100%;
@@ -141,6 +167,7 @@ h4 {
 }
 
 h5 {
+    padding: 0 1em;
     font-size: 80%;
     margin-bottom: -0.25em;
     padding-top: 0.25em;
@@ -148,10 +175,16 @@ h5 {
 }
 
 hr {
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid #CCC;
+}
+
+/*hr {
     height: 1px;
     border: 0;
     color: #FF0000;
-}
+}*/
 
 p, blockquote, ul, ol, dl, li, table, pre {
     margin: 1em 0;

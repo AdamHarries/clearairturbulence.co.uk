@@ -1,6 +1,7 @@
 ---
 title: GHC exited with error -24
 tags: short, haskell, GHC, compilers, confusion, documentation
+date: 2016-11-17
 unfinished: true
 abstract: Why does ghc exit with error code *-24*? Who knows!? Not me! 
 ---

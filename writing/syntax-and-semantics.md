@@ -1,12 +1,10 @@
 ---
 title: Syntax and semantics
 tags: scala, industry, programming languages, unfinished, in progress
+date: 2016-11-25
 unfinished: true
+abstract: Learning how to use something, such as a programming language, is much easier when it is possible to relate it to a tool one is already familiar with. As programming language designers, we tend to exploit this by designing languages with similar surface syntaxes, and with similar features. I argue here that the real barrier to learning new languages is learning new *semantics*, which results in languages that aim to supercede "less safe" semantics. In some cases, these sematic supersets hide dangerous older semantics in graceful ways but in some cases they do not - and that doesn't inhibit their success.   
 ---
-
-## Note
-
-This post is unfinished. Take everything I say here with a pinch of salt. 
 
 ## Why the continuum is bad.
 

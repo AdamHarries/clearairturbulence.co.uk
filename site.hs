@@ -30,7 +30,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
 
-    match ("images/*" .||. "css/*") $ do
+    match ("images/**" .||. "css/*") $ do
         route   idRoute
         compile copyFileCompiler
 
