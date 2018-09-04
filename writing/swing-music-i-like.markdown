@@ -41,3 +41,7 @@ What can I say about this track that it isn't possible to simply hear?! To begin
 **"Spreadin&#39; Rhythm Around" - Jonathan Stout and his Campus Five**
 
 <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3708059077/size=small/bgcol=ffffff/linkcol=63b2cc/track=2091763109/transparent=true/" seamless><a href="http://campusfive.bandcamp.com/album/spreadin-rhythm-around">Spreadin&#39; Rhythm Around by Jonathan Stout and his Campus Five</a></iframe>
+
+**"I'll Fly Away" - The Blue Vipers Of Brooklyn**
+
+<iframe style="border: 0; width: 100%; height: 80px;" src="https://open.spotify.com/embed/track/07x2pliaLMJZFCAb6mywti&theme=white"  allowtransparency="true" allow="encrypted-media"></iframe>
