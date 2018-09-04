@@ -18,6 +18,7 @@ language: generic
 cache:
   directories:
   - $HOME/.stack
+  - .stack-work
 
 # Ensure necessary system libraries are present
 addons:
@@ -34,7 +35,7 @@ before_install:
 
 install:
 # Build dependencies
-- stack --no-terminal --install-ghc test --only-dependencies
+- travis_wait 30 stack --no-terminal --install-ghc test --only-dependencies
 
 script:
 # Build the package, its tests, and its docs and run the tests
@@ -42,5 +43,6 @@ script:
 - stack exec site clean
 - stack exec site build
 - cp -r _site public
-- echo "yes" | rsync -r -e "ssh -i key.prv" public aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net:/home/
+- ssh-keyscan ssh.phx.nearlyfreespeech.net >> ~/.ssh/known_hosts
+- rsync -r -e "ssh -i key.prv" public aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net:/home/
 - rm -rf public
