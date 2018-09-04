@@ -45,5 +45,5 @@ script:
 - stack exec site build
 - cp -r _site public
 - ssh-keyscan ssh.phx.nearlyfreespeech.net >> ~/.ssh/known_hosts
-- rsync -r -e "ssh -i key.prv" public aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net:/home/
+- rsync -r -e "ssh -i key.prv aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net" public aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net:/home/
 - rm -rf public
