@@ -3,7 +3,7 @@ title: Styles of the Collegiate Shag Basic
 tags: dancing, swing dancing, swing, shag, collegiate shag
 date: 2017-02-15
 unfinished: true
-abstract: At it's peak, Collegiate Shag was danced across the US, and thus developed many regional styles. In "modern" shag these various styles are useful teaching aids, as well as great tools for musicality and making the dance your own. 
+abstract: At it's peak Collegiate Shag was danced across the US, and thus developed many regional styles. In "modern" shag these various styles are useful teaching aids, as well as great tools for musicality and making the dance your own. 
 ---
 
 I've had a couple of questions from fellow dancers about collegiate shag footwork, in particular different variants, and the fact that my partner and I seem to teach different footwork at each class we do. I'd like to clarify some of it, as well as give some great historical references to early shag, so I thought I'd post a bit of text to go into some of the historical and practical reasons why we do this. 
