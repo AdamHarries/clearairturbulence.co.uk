@@ -36,7 +36,7 @@ before_install:
 install:
 # Build dependencies
 - while sleep 9m; do echo "=====[ $SECONDS seconds still running ]====="; done &
-- stack --no-terminal --install-ghc test --only-dependencies --verbose
+- stack --no-terminal --install-ghc test --only-dependencies --verbose --flag hakyll:-previewServer --flag hakyll:-watchServer
 
 script:
 # Build the package, its tests, and its docs and run the tests
