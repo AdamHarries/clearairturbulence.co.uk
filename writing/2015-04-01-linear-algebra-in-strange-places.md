@@ -1,6 +1,7 @@
 ---
 title: How linear algebra turns up in unexpected places.
 tags: maths, linear algebra, haskell
+date: 2015-04-01
 unfinished: true
 abstract: Linear algebra shows up in all sorts of strange ares, often unexpectedly. In each area, it provides a valuable and powerful tool for reasining about the area, and offers deeper connectsions to other areas. In this post I take a look at some example areas and discuss (for each of them) the ways that we can reinterpret them in terms of linear algebra. 
 ---
