@@ -18,7 +18,7 @@ The Schwings are a modern jazz band based in Vilnius, Lithuania. Led by their sa
 
 Perhaps it's because I used to play Baritone Saxophone, or the catchiness of the main riff, but this tune is my absolute favourite track for dancing collegiate shag. It has a wonderful energy, at a perfect shag tempo (around 200bpm), a really solid driving chunking guitar, and really lovely breaks - perfect for being musical, free, and fun while dancing. 
 
-On a somewhat personal note, this song always reminds me of mine and rebecca's stay in a tiny AirBnB in a top floor flat in Barcelona after BCN Shag Festival 2016. It was absolutely perfect - a tiny studio flat, with a roof terrace larger than the intside, intimate, yet with space, air and freedom. This track reminds me of exactly the emotions I felt then. Connected, yet free, and able to improvise and be with someone without restriction or conflict. 
+On a somewhat personal note, this song always reminds me of mine and rebecca's stay in a tiny AirBnB in a top floor flat in Barcelona after BCN Shag Festival 2016. It was absolutely perfect - a tiny studio flat, with a roof terrace larger than the inside, intimate, yet with space, air and freedom. This track reminds me of exactly the emotions I felt then. Connected, yet free, and able to improvise and be with someone without restriction or conflict. 
 
 Lovely. 
 
@@ -29,3 +29,15 @@ Lovely.
 What can I say about this track that it isn't possible to simply hear?! To begin with, unfortunately, is the name that is (shall we say) very much of its time[^1]. To be blunt, the title is a racist reference to the dance events held in the "darktown" - i.e. sections of a city predominantly occupied by African-Americans. I'm hesitant in including this in my list of favourite songs, as the title and (some of the) lyrical content does not align with my personal politics. That said, I hope that it's possible to appreciate this track purely on its musical qualities. 
  
 [^1]: I am not an expert in this history of race in america, so anything I say here must be taken as my (limited) knowledge at the time of writing. Any innacuracies are the result of *ignorance* rather than prejudice. 
+
+**"Sugar Foot Rag" - Brothers Arntzen**
+
+<iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=412700470/size=small/bgcol=ffffff/linkcol=63b2cc/track=1028525550/transparent=true/" seamless><a href="http://brothersarntzen.bandcamp.com/album/introducing-the-brothers-arntzen">Introducing The Brothers Arntzen by Brothers Arntzen</a></iframe>
+
+**"Mill House Stomp" - Jonathan Stout and his Campus Five**
+
+<iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3708059077/size=small/bgcol=ffffff/linkcol=63b2cc/track=289323246/transparent=true/" seamless><a href="http://campusfive.bandcamp.com/album/spreadin-rhythm-around">Spreadin&#39; Rhythm Around by Jonathan Stout and his Campus Five</a></iframe>
+
+**"Spreadin&#39; Rhythm Around" - Jonathan Stout and his Campus Five**
+
+<iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3708059077/size=small/bgcol=ffffff/linkcol=63b2cc/track=2091763109/transparent=true/" seamless><a href="http://campusfive.bandcamp.com/album/spreadin-rhythm-around">Spreadin&#39; Rhythm Around by Jonathan Stout and his Campus Five</a></iframe>
