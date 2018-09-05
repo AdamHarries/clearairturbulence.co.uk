@@ -26,6 +26,7 @@ script:
 - stack exec site build
 - cp -r _site public
 - ssh-keyscan ssh.phx.nearlyfreespeech.net >> ~/.ssh/known_hosts
+- eval `ssh-agent -s`
 - ssh-add key.prv
 - cp key.prv ~/.ssh/key
 - rsync -r public aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net:/home/
