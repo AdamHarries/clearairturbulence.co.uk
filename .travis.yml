@@ -3,32 +3,29 @@ language: generic
 cache:
   directories:
   - "$HOME/.stack"
-  - ".stack-work"
+
 addons:
   apt:
     packages:
     - libgmp-dev
     - sshpass
+
 before_install:
 - mkdir -p ~/.local/bin
 - export PATH=$HOME/.local/bin:$PATH
 - travis_retry curl -L https://get.haskellstack.org/stable/linux-x86_64.tar.gz | tar
   xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'
-- openssl aes-256-cbc -K $encrypted_7aa13d89ac08_key -iv $encrypted_7aa13d89ac08_iv
-  -in key.enc -out key.prv -d
-- chmod 0400 key.prv
+
 install:
 - stack --no-terminal --install-ghc test --only-dependencies --flag hakyll:-previewServer
   --flag hakyll:-watchServer -j $(nproc)
+  
 script:
 - stack build
 - stack exec site clean
 - stack exec site build
 - cp -r _site public
 - ssh-keyscan ssh.phx.nearlyfreespeech.net >> ~/.ssh/known_hosts
-- eval `ssh-agent -s`
-- ssh-add key.prv
-- cp key.prv ~/.ssh/key
 - sshpass -e rsync -r public aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net:/home/
 - rm -rf public
 env:

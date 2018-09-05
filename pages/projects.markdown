@@ -6,7 +6,9 @@ title: Projects.
 
 > An experimental testbed and tool for tempo detection of swing music, named after the legendary band leader Duke Ellington.  
 
-Somethinng about ellington...
+- Written in rust
+
+- sort of working
 
 [*Ellington can be found on Github.*](https://github.com/AdamHarries/ellington)
 
@@ -17,6 +19,10 @@ Somethinng about ellington...
 > Bellson is an attempt at using deep convolutional neural networks to infer the tempo structure of swing music. Named after Louis Bellson, one of Duke Ellington's drummers. 
 
 Bellson is designed to be a component of Ellington. 
+
+- Written in python
+
+- Want to port to rust/C++
 
 [*Bellson can be found on Github.*](https://github.com/AdamHarries/bellson)
 
