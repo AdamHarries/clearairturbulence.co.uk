@@ -29,8 +29,8 @@ script:
 - eval `ssh-agent -s`
 - ssh-add key.prv
 - cp key.prv ~/.ssh/key
-- rsync -r public aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net:/home/
+- sshpass -e rsync -r public aharries_clearairturbulence@ssh.phx.nearlyfreespeech.net:/home/
 - rm -rf public
 
-SSHPW:
+SSHPASS:
   secure: ZXQxvDPmMvLPRXJr7eESOXjgfra/fNPMzqc63b7CmRcbaQB8NKRx4UlNl4L7+dsWugb5emUxYVDqRqIK5cVaHVvED9AOcKrPNiTJl7htnERoEkWGDWrFXwK/c74MD+b1TNNIOz5dwCMm/zRcETrYNRaBHD+DPqK2WKf+sr7jaXKTwNLz3x9m8NDg+sK3Yo2CCQaL2sxS8WSfoQO404uYJCuzNq0TnCO3PrP1JvXjYHM2HvjotUs9e4418ojnTBaYiSYhi4Vq7U90qoM01wR4ASTUI8TDCASKLp1avF9cVkekTB6A6HBv5qp99UJhwp+OovdzRkTJiuYAbZhQ08dBRAAe2B+UYaCe5TbuhajHP5WnJR8nIngt94eFuWX8LyJCk7rOIfbKXkSETmBpfyzP2YeyMx1/dWiMcEDwz4DxIrrQG8uqGIawLcB1tJTZ0i3hh7q5JEZyiVYLjfjAMiBXDtp58sIoP2vgxjGDURyO4fbqey6a210KyFtV1xKQct6LgTLMBqARwaEH0TVl/akxHC0/WVaKjHr4Kel3VawXuypYNpFVGcyIoVMFYR/Ynlb/8j6SvcZpd7PhJYM4FsGfk/xwqFf539ciJm3Ov4K0aVPHMHrHXNq4B3xmGITLxRAqZMF2xjwMW4CkowwAupaKuKJGBVdZegb/BEJivIJqUZg=
