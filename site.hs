@@ -11,11 +11,19 @@ import           Data.List                       (find)
 -------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
+    -- get tags from all the pages in writing
     tags <- buildTags "writing/*" (fromCapture "tags/*.html")
 
-    modifications <- buildModifications "writing/*"
+    -- get the modification times (from git) for all the pages
+    modifications <- runCommandOnItems gitModTime "**"
 
-    let context = postCtxWithTags tags modifications
+    -- get the git hashes from all the pages
+    hashes <- runCommandOnItems gitShortHash "**"
+
+    -- Create a context for static information/pages
+    let staticContext = staticCtx hashes
+
+    let context = postCtx tags modifications
 
     tagsRules tags $ \tag pattern -> do
         let title = "Posts tagged \"" ++ tag ++ "\""
@@ -37,8 +45,8 @@ main = hakyll $ do
     match "writing/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
-            >>= loadAndApplyTemplate "templates/post.html" (context)
-            >>= loadAndApplyTemplate "templates/default.html" (defaultContext)
+            >>= loadAndApplyTemplate "templates/post.html" (filepathCtx `mappend` context)
+            >>= loadAndApplyTemplate "templates/default.html" (staticContext)
             >>= relativizeUrls
 
     match "pages/writing.markdown" $ do
@@ -47,7 +55,7 @@ main = hakyll $ do
             posts <- recentFirst =<< loadAll "writing/*"
             let indexCtx = 
                     listField "posts" (context) (return posts) `mappend`
-                    defaultContext
+                    staticContext
 
             getResourceBody 
                 >>= applyAsTemplate indexCtx
@@ -58,44 +66,58 @@ main = hakyll $ do
     match ("pages/projects.markdown" .||. "pages/index.markdown" .||. "pages/work-in-progress.markdown") $ do
         route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate "templates/default.html" staticContext
             >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
 
+staticCtx :: [(Identifier, String)] -> Context String
+staticCtx hashes = 
+    filepathCtx `mappend`
+    genericStringField "githash" hashes `mappend` 
+    defaultContext
 
-postCtxWithTags :: Tags -> [(Identifier, String)] -> Context String
-postCtxWithTags tags times = 
-    modificationCtx times `mappend` 
-    githubCtx `mappend`
+postCtx :: Tags -> [(Identifier, String)] -> Context String
+postCtx tags times = 
+    genericStringField "lastModified" times `mappend`
     tagsField "tags" tags `mappend` 
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 
-githubCtx :: Context String 
-githubCtx = field "githubLink" $ \item -> do 
+filepathCtx :: Context String 
+filepathCtx = field "filepath" $ \item -> do 
     let path = (toFilePath . itemIdentifier) item
     return $ path
 
-modificationCtx :: [(Identifier, String)] -> Context String 
-modificationCtx modificationTimes = field "lastModified" $ \item -> do
-    let time = find (\x -> (fst x) == (itemIdentifier item)) modificationTimes >>= return . snd 
-    return $ fromMaybe "Post not in git" $ time
-
-buildModifications ::  Pattern -> Rules [(Identifier, String)]
-buildModifications pattern = do 
-    ids <- getMatches pattern
-    pairs <- preprocess $ foldM getLastModified [] ids
-    return pairs
+genericStringField :: String -> [(Identifier, String)] -> Context String
+genericStringField name vs = field name $ \ident -> do 
+    return $ fromMaybe ("No value found for key " ++ name) $ search ident
     where 
-        getLastModified l id' = do
-            lmodtime <- readProcess "git" 
-                ["log", "-1", "--format=%ad", "--date=format:%b %d, %Y", 
-                (toFilePath id')] 
-                ""
-            return $ (id', lmodtime) : l
+        search ident = 
+            find (\p -> (fst p) == (itemIdentifier ident)) vs >>= return . snd
 
+-- Generic tools to query information about posts using command line programs
+data ShlCommand = ShlCommand { 
+    cmname :: String, 
+    cmargs :: [String]
+}
 
+gitModTime :: ShlCommand
+gitModTime = ShlCommand { cmname = "git", cmargs = ["log", "-1", "--format=%ad", "--date=format:%b %d, %Y"]}
+
+gitShortHash :: ShlCommand
+gitShortHash = ShlCommand { cmname = "git", cmargs = ["log", "-1", "--pretty=format:%h"]}
+
+runCommandOnItems :: ShlCommand -> Pattern -> Rules [(Identifier, String)]
+runCommandOnItems cmd pattern = do 
+    ids <- getMatches pattern
+    preprocess $ foldM runOnItem [] ids
+    where 
+        runOnItem l id' = do 
+            cmdRes <- readProcess (cmname cmd) (cmargs cmd ++ [toFilePath id']) ""
+            return $ (id', cmdRes) : l
+
+-- Compiler for pandoc math extensions
 pandocMathCompiler :: Compiler (Item String)
 pandocMathCompiler =
   let
