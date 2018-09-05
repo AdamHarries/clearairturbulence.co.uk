@@ -16,7 +16,7 @@ Let's start this post on a high note. These are the tracks that I *love* to danc
 
 The Schwings are a modern jazz band based in Vilnius, Lithuania. Led by their saxophone player, Remigijus Rančys, they play a mixture of original compositions, original swing tunes, and covers of modern (non swing) tunes. This particular tune is beefy, baritone driven cover of Bob Marley's [original reggae version](https://www.youtube.com/watch?v=CHekNnySAfM).
 
-Perhaps it's because I used to play Baritone Saxophone, or the catchiness of the main riff, but this tune is my absolute favourite track for dancing collegiate shag. It has a wonderful energy, at a perfect shag tempo (around 200bpm), a really solid driving chunking guitar, and really lovely breaks - perfect for being musical, free, and fun while dancing. 
+Perhaps it's because I used to play Baritone Saxophone, or the catchiness of the main riff, but this tune is my absolute favourite track for dancing collegiate shag. It has a wonderful energy, at a perfect shag tempo (around 200bpm), a really solid driving chunking guitar, and really interesting breaks - perfect for being musical, free, and fun while dancing. 
 
 On a somewhat personal note, this song always reminds me of mine and rebecca's stay in a tiny AirBnB in a top floor flat in Barcelona after BCN Shag Festival 2016. It was absolutely perfect - a tiny studio flat, with a roof terrace larger than the inside, intimate, yet with space, air and freedom. This track reminds me of exactly the emotions I felt then. Connected, yet free, and able to improvise and be with someone without restriction or conflict. 
 
@@ -45,3 +45,5 @@ What can I say about this track that it isn't possible to simply hear?! To begin
 **"I'll Fly Away" - The Blue Vipers Of Brooklyn**
 
 <iframe style="border: 0; width: 100%; height: 80px;" src="https://open.spotify.com/embed/track/07x2pliaLMJZFCAb6mywti&theme=white"  allowtransparency="true" allow="encrypted-media"></iframe>
+
+I'll fly away is one of those tracks that really inspires me and has helped me to get through tough times. It helps, of course, that it's also a wonderful tune to dance to. It's got a solid chuggy rhythm, some wonderful musicianship, great percussion breaks and a positive energy that practically infuses my dancing and spirit with life. 
