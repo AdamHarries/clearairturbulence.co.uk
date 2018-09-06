@@ -34,6 +34,10 @@ What can I say about this track that it isn't possible to simply hear?! To begin
 
 <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=412700470/size=small/bgcol=ffffff/linkcol=63b2cc/track=1028525550/transparent=true/" seamless><a href="http://brothersarntzen.bandcamp.com/album/introducing-the-brothers-arntzen">Introducing The Brothers Arntzen by Brothers Arntzen</a></iframe>
 
+I first came across the Brothers Arntzen's wonderful version of "Sugar Foot Rag" when a couple of friends performed routine to the song at [Mind the Shag 2017](https://www.youtube.com/watch?v=xcHnMCzP7vg). Their routine is wonderful, and they couldn't have picked a better song for it! 
+
+I love dancing to this song because of the wholesome, bouncy energy it has. It overwhelms with a great sense of fun, and has some great breaks. 
+
 **"Mill House Stomp" - Jonathan Stout and his Campus Five**
 
 <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=3708059077/size=small/bgcol=ffffff/linkcol=63b2cc/track=289323246/transparent=true/" seamless><a href="http://campusfive.bandcamp.com/album/spreadin-rhythm-around">Spreadin&#39; Rhythm Around by Jonathan Stout and his Campus Five</a></iframe>
