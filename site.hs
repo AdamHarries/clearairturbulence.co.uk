@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Hakyll
-import           Text.Pandoc.Options
+import           Text.Pandoc
 import           System.Process
 import           Control.Monad                   (foldM)
 import           Data.Monoid                     (mappend)
@@ -25,13 +25,13 @@ main = hakyll $ do
 
     let context = postCtx tags modifications
 
-    tagsRules tags $ \tag pattern -> do
+    tagsRules tags $ \tag pt -> do
         let title = "Posts tagged \"" ++ tag ++ "\""
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll pattern
+            posts <- recentFirst =<< loadAll pt
             let ctx = constField "title" title
-                      `mappend` listField "posts" (context) (return posts)
+                      `mappend` listField "posts" context (return posts)
                       `mappend` defaultContext
             makeItem ""
                 >>= loadAndApplyTemplate "templates/post-list.html" ctx
@@ -46,7 +46,7 @@ main = hakyll $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
             >>= loadAndApplyTemplate "templates/post.html" (filepathCtx `mappend` context)
-            >>= loadAndApplyTemplate "templates/default.html" (staticContext)
+            >>= loadAndApplyTemplate "templates/default.html" staticContext
             >>= relativizeUrls
 
     match "pages/writing.markdown" $ do
@@ -54,7 +54,7 @@ main = hakyll $ do
         compile $ do
             posts <- recentFirst =<< loadAll "writing/*"
             let indexCtx = 
-                    listField "posts" (context) (return posts) `mappend`
+                    listField "posts" context (return posts) `mappend`
                     staticContext
 
             getResourceBody 
@@ -90,7 +90,7 @@ filepathCtx = field "filepath" $ \item -> do
     return $ path
 
 genericStringField :: String -> [(Identifier, String)] -> Context String
-genericStringField name vs = field name $ \ident -> do 
+genericStringField name vs = field name $ \ident ->
     return $ fromMaybe ("No value found for key " ++ name) $ search ident
     where 
         search ident = 
@@ -109,8 +109,8 @@ gitShortHash :: ShlCommand
 gitShortHash = ShlCommand { cmname = "git", cmargs = ["log", "-1", "--pretty=format:%h"]}
 
 runCommandOnItems :: ShlCommand -> Pattern -> Rules [(Identifier, String)]
-runCommandOnItems cmd pattern = do 
-    ids <- getMatches pattern
+runCommandOnItems cmd ptrn = do 
+    ids <- getMatches ptrn
     preprocess $ foldM runOnItem [] ids
     where 
         runOnItem l id' = do 
