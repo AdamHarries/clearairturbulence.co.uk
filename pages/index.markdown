@@ -12,7 +12,7 @@ I like a lot of things, and I like to think about a lot of things. My usual meth
 
 I'm Adam, a twenty-something year old software engineer living in Edinburgh, Scotland. I spend most of my time thinking about programming, mathematics, music and dancing, so most of the posts on this site fit into one of those categories.
 
-If you want to get in touch, send me a tweet or a message on twitter - I'm @[harriesadam](https://twitter.com/harriesadam).
+If you want to get in touch, send me a tweet or a message on twitter - I'm [@harriesadam](https://twitter.com/harriesadam).
 
 ## Clear Air Turbulence
 
