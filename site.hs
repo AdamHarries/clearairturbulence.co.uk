@@ -42,6 +42,13 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
+    match "scratch/*" $ do 
+        route $ setExtension "html" 
+        compile $ pandocMathCompiler 
+            >>= loadAndApplyTemplate "templates/post.html" (filepathCtx `mappend` context)
+            >>= loadAndApplyTemplate "templates/default.html" staticContext
+            >>= relativizeUrls
+
     match "writing/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
