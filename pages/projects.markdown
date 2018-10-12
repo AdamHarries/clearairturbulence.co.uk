@@ -52,7 +52,7 @@ Collegiate Shag is a somewhat niche swing dance, with a small community even by 
 
 My old phone case fell apart, so I decided to make a new one! I'd wanted to do more physical projects for a while, and leatherworking sounded interesting, so it sounded like a good project to start with.
 
-[*I've written up my process here, along with snapshots of another small leather project that I made*](https://clearairturbulence.co.uk/writing/basic-leatherwork.html)
+[*I've written up my process here, along with snapshots of another small leather project that I made.*](https://clearairturbulence.co.uk/writing/basic-leatherwork.html)
 
 ***
 
