@@ -4,6 +4,10 @@ title: Projects.
 
 ## [Ellington](https://github.com/AdamHarries/ellington)
 
+<div style="text-align: center;">
+<script src="https://asciinema.org/a/uqpZZU0DXZSdmRk1ddRXXOmLg.js" id="asciicast-uqpZZU0DXZSdmRk1ddRXXOmLg" data-cols="80" data-rows="14" async></script>
+</div>
+
 > An experimental testbed and tool for tempo detection of swing music, named after the legendary band leader Duke Ellington.  
 
 As might be evident from my writings across this site, I'm quite a big fan of swing dancing, and the swing music that underpins it. One of the ways that I get involved in swing dancing is as a *DJ*, where my responsibility is to queue up tracks for attendees at a dance. Unfortunately, dancers are a picky bunch, not unlike goldilocks, so finding the perfect music for them can sometimes be a challenge. 
