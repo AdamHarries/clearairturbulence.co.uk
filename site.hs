@@ -42,6 +42,17 @@ main = hakyll $ do
         route   idRoute
         compile copyFileCompiler
 
+    match ("raw/*") $ do
+        route $ gsubRoute "raw/" (const "")
+        compile copyFileCompiler
+
+    match "scratch/*" $ do 
+        route $ setExtension "html" 
+        compile $ pandocMathCompiler 
+            >>= loadAndApplyTemplate "templates/post.html" (filepathCtx `mappend` context)
+            >>= loadAndApplyTemplate "templates/default.html" staticContext
+            >>= relativizeUrls
+
     match "writing/*" $ do
         route $ setExtension "html"
         compile $ pandocMathCompiler
@@ -63,7 +74,11 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" indexCtx
                 >>= relativizeUrls
 
-    match ("pages/projects.markdown" .||. "pages/index.markdown" .||. "pages/work-in-progress.markdown") $ do
+    match ("pages/projects.markdown" .||. 
+        "pages/index.markdown" .||. 
+        "pages/work-in-progress.markdown" .||. 
+        "pages/err404.markdown" .||. 
+        "pages/err404.markdown") $ do
         route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" staticContext

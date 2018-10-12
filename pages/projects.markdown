@@ -38,7 +38,7 @@ Bellson is designed to be a component of Ellington.
 
 ## [Collegiate Shag Pins](https://wwwi.nstagram.com/p/Bb-EVGyAvwC/)
 
-![](/images/projects/shagpins/pin.jpg "A collegiate shag pin")
+![](https://github.com/AdamHarries/clearairturbulence.co.uk/raw/master/images/projects/shagpins/pin.jpg "A collegiate shag pin")
 
 Collegiate Shag is a somewhat niche swing dance, with a small community even by the standards of the small swing community. In order to make it easier to find Collegiate Shag dancers at general swing events, I commissioned a run of pins that dancers could wear to indicate that they dance Shag.
 

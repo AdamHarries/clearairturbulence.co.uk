@@ -1,0 +1,5 @@
+---
+title: Error 404.
+---
+
+It appears that you tried to reach a page that doesn't exist. Apologies for the dissapointment! Perhaps you misspelled the URL? If you followed a link and got this page, I've probably messed up, so please drop me a message/tweet to let me know!
