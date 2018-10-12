@@ -18,6 +18,8 @@ Eventually, the case was too far gone to be usable, and so I started searching a
 
 So I decided to make one. 
 
+![](https://github.com/AdamHarries/clearairturbulence.co.uk/raw/master/images/projects/leatherwork/phone_case_finished_smaller.jpg "phone_case_finished")
+
 ## Making a new phone case
 
 I knew absolutely nothing about leatherwork when I started. I now merely know very little about leatherwork. Knowing nothing meant that I had a fairly lengthy exploration process before I really got going with the phone case. I messed around with a couple of designs, tried out some techniques, and tested started to get too grips with the material and my (very limited) skills. I'd strongly recommend doing something similar if you, dear reader, also want to try working with leather. Producing a couple of test pieces really helped me to understand the limitations and qualities of the materials that I had, as well as understand the tools that I'd need, and how to use them. 
@@ -35,18 +37,19 @@ I initially set out to construct the case from 3mm veg tan leather. I wanted an 
 
 ## Basic leatherworking process
 
-The leatherworking process (for a given piece) goes something like this: 
+<!-- The leatherworking process (for a given piece) goes something like this: 
 
 - Cut
 - Punch
 - Burnish (optional)
 - Attach (sew)
-- Burnish (optional)
+- Burnish (optional) -->
 
+Unfortunately, I completely forgot to actually take any pictures while making the case. Instead here are some pictures of a follow-up project I made, a pencil case, made from some of the scraps of leather that I didn't use. 
 
 ![](https://github.com/AdamHarries/clearairturbulence.co.uk/raw/master/images/projects/leatherwork/phone_case_partial.jpg "phone_case_partial")
 
-![](https://github.com/AdamHarries/clearairturbulence.co.uk/raw/master/images/projects/leatherwork/phone_case_finished.jpg "phone_case_finished")
+
 
 ![](https://github.com/AdamHarries/clearairturbulence.co.uk/raw/master/images/projects/leatherwork/1_pre_cutting.jpg "1_pre_cutting")
 
