@@ -5,7 +5,7 @@ title: Projects.
 ## [Ellington](https://github.com/AdamHarries/ellington)
 
 <div style="text-align: center;">
-<script src="https://asciinema.org/a/uqpZZU0DXZSdmRk1ddRXXOmLg.js" id="asciicast-uqpZZU0DXZSdmRk1ddRXXOmLg" data-cols="80" data-rows="14" async></script>
+<script src="https://asciinema.org/a/uqpZZU0DXZSdmRk1ddRXXOmLg.js" id="asciicast-uqpZZU0DXZSdmRk1ddRXXOmLg" data-cols="80" data-rows="14" data-autoplay="1" data-preload="1" data-speed="2" data-theme="monokai" async></script>
 </div>
 
 > An experimental testbed and tool for tempo detection of swing music, named after the legendary band leader Duke Ellington.  
