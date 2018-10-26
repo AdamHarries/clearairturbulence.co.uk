@@ -62,9 +62,24 @@ My old phone case fell apart, so I decided to make a new one! I'd wanted to do m
 
 ## Professional/work projects
 
+When I'm not procrastinating, I do things for people in exchange for financial reimbursement. At one point that was studying for a PhD, which I have now left, and I now exchange my typing and thinking skills for money at Codeplay, a smallish software engineering firm in Edinburgh. 
+
+Here are some of the projects that I worked on. 
+
 ### Lift
 
 > Lift is a high performance functional programming language, designed as a solution to the "performance portability" problem, and targeting hetrogenous parallel programming systems. 
+
+I worked on Lift as part of my MSc and (withdrawn) PhD at the University of Edinburgh. Lift is designed to solve the problem of performance portability across accelerator platforms. Performance portability refers to the problem of writing code that is both cross platform (i.e. it will run correctly across different hardware platforms), and also performant across platforms. 
+
+Simple "portability" is a solved problem - we have numerous high level languages for day to day computing, such as C, C++, Haskell, Agda etc, as well as portable languages for accelerator programming such as OpenCL and SYCL. These high level languages act as a common interface to the various flavours of computing systems. It is possible to write code in one of these languages (say, C++), that will run on a desktop running linux on x86, on windows running on ARM, or even more esoteric varieties. Some parts of the code will have to be specialised, but in general portable code is now fairly standard. 
+
+Performance portability, however, is a much more difficult problem to solve, as to understand how to write performant code entails understanding the machine that the code will run on, rather than just the interface the machine provides. This means that the same code written in (say) OpenCL will have vastly different performance characteristics when running on an AMD GPU, or on a NVIDIA GPU. This presents a big problem, as our aim with using a GPU (or an other co-processor or accelerator) is to increase the speed of our code. If we cannot guarantee performance, or even achieve it in the first place, then the whole effort is pointless. 
+
+Lift aims to solve the problem of performance portability by compiling code using *algorithmic rewrites*. Put simply, the Lift compiler essentially generates hundreds of thousands of potential program "implementations" for every program compiled, and searches for one that will perform the best on a given piece of hardware. 
+
+Lift is still in early development, and is not production ready, but the hope is that the rewriting process, guided by a sufficiently knowledgeable searching scheme will allow it to solve the performance portability challenge by providing a common interface across hardware, and generating specific implementations for each specific platform. 
+
 
 ### Sycl parallel stl
 
