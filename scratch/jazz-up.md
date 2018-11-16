@@ -6,6 +6,12 @@ unfinished: true
 abstract: Some songs just _need_ big band versions.
 ---
 
+## Origins. 
+
+A lot of the songs that I've heard, and want big band/swing versions of, are ones that I've encountered both originally, and with mellow acoustic covers. Quite often from this [spotify playlist](https://open.spotify.com/user/spotify/playlist/37i9dQZF1DWXmlLSKkfdAk?si=6bZepwGnRcecdgIOWq3G1A). Generally, the acoustic version pare songs back enough to really feel what could be swung, and in some cases, actually swing it! 
+
+## Songs
+
 **[The Countdown Theme](https://www.youtube.com/watch?v=e32kaa9TzeE)** - One o'clock jump style/"reverse head", fastish, with the final change indicating a drum break?
 
 **[Sospan Fach](https://www.youtube.com/watch?v=0_aM4Ar73j0)** - In the style of "Song of the Volga Boatmen". See other versions of this song for interesting countermelodies and arrangements.
@@ -27,3 +33,7 @@ abstract: Some songs just _need_ big band versions.
 **[Mr. Brightside](https://www.youtube.com/watch?v=gGdGFtwCNBE)** - Sinatra style? 
 
 **[Take me to church](https://www.youtube.com/watch?v=PVjiKRfKpPI)** - Again, shiny stocking style would work well - powerful singer with strong horn backing.
+
+**[Hey Ya!](https://www.youtube.com/watch?v=PWgvGjAhvIw)** - This is getting super dumb now.
+
+**[I kissed a girl](https://www.youtube.com/watch?v=tAp9BKosZXs)** - Way too dumb now. 
