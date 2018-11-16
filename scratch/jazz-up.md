@@ -25,3 +25,5 @@ abstract: Some songs just _need_ big band versions.
 **[Despacito](https://www.youtube.com/watch?v=kJQP7kiw5Fk)** - Come on, it has to be done. Maybe in a really dixieland style, just for the fun of it?
 
 **[Mr. Brightside](https://www.youtube.com/watch?v=gGdGFtwCNBE)** - Sinatra style? 
+
+**[Take me to church](https://www.youtube.com/watch?v=PVjiKRfKpPI)** - Again, shiny stocking style would work well - powerful singer with strong horn backing.
