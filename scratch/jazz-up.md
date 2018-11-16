@@ -22,3 +22,4 @@ abstract: Some songs just _need_ big band versions.
 
 **[Home/Dirty Paws](https://www.youtube.com/watch?v=pgPSSgP6zzA)** - Based on the [version](https://www.youtube.com/watch?v=DHEOF_rcND8) by "Edwarde Sharpe and the Magnetic Zeros", which would be particularly fitting given that the drummer (Josh Collazo) plays with Johnathan Stout
 
+**[Despacito](https://www.youtube.com/watch?v=kJQP7kiw5Fk)** - Come on, it has to be done. Maybe in a really dixieland style, just for the fun of it?
