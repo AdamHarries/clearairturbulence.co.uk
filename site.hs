@@ -77,6 +77,7 @@ main = hakyll $ do
     match ("pages/projects.markdown" .||. 
         "pages/index.markdown" .||. 
         "pages/work-in-progress.markdown" .||. 
+        "pages/research.markdown" .||. 
         "pages/err404.markdown" .||. 
         "pages/err404.markdown") $ do
         route   $ gsubRoute "pages/" (const "") `composeRoutes` setExtension "html"
