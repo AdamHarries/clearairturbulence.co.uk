@@ -21,16 +21,17 @@ I would argue that tests and types serve a similar purpose when writing software
 "This method shall return the average number '4' when given the array of numbers '[2,3,4,5,6]'" and "When given any two vectors Xs and Ys, of length N and M, this method shall return another vector of length N+M" are both falsifiable predictions we could potentially make about code. 
 In the former, we would generally use a *test* to assert whether our prediction is true or false. This might look something like this: 
 
-```language=C++
+```C++
 TEST(AverageTest, ResultCorrect) {
   std::vector<int> v{2,3,4,5,6};
   int average = std::accumulate(v.begin(), v.end(), 0) / v.size();
   EXPECT_EQ(average, 4);
 }
 ```
-The second prediction is one that could be checked using a powerful enough (aaaahhh) *type system*. An example, from the *Idris* language is given as follows: 
 
-```language=Idris
+The second prediction is one that could be validated using a powerful enough *type system*. An example, from the *Idris* language is given as follows: 
+
+```Idris
 append : Vect n a -> Vect m a -> Vect (n + m) a
 append Nil ys = ys 
 append (x :: xs) ys = x :: append xs ys
