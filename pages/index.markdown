@@ -28,6 +28,6 @@ Not long after finishing "Consider Phlebas", back in 2015, I idly searched to se
 
 ## General disclaimer
 
-All opinions expressed on this site are my own, and in now way reflect the opinions of my employer. Please do not take anything written here too seriously, and if anything offends or rankles, please reach out as soon as possible - I'm always keen to listen to new perspectives and ideas.  
+All opinions expressed on this site are my own, and in no way reflect the opinions of my employer. Please do not take anything written here too seriously, and if anything offends or rankles, please reach out as soon as possible - I'm always keen to listen to new perspectives and ideas.  
 
 [^1]: I jest - my significant other claims to love it when I ramble on about whatever is filling up my head. In her words "it really helps me to get to sleep". 
