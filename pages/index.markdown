@@ -14,6 +14,10 @@ I'm Adam, a twenty-something year old software engineer living in Edinburgh, Sco
 
 If you want to get in touch, send me a tweet or a message on twitter - I'm @[harriesadam](https://twitter.com/harriesadam).
 
+## Reviews
+
+**My brother:** [imitating me] "I'm a very pretentious person."
+
 ## Clear Air Turbulence
 
 It was some point in 2015, and I had just finished Ian M. Banks' wonderful book "Consider Phlebas". Friends and (select) family had been gently pestering to read some of the culture series for some time, and at their recommendation I started reading. While the story and setting were, of course, wonderful it was the names of the culture vessels that really gripped me. They followed the same rough scheme as the names of airships in Philip Reeve's "Mortal Engines" series - a set of books that I had loved as a child, and a set of names that I had loved even more.
@@ -24,6 +28,6 @@ Not long after finishing "Consider Phlebas", back in 2015, I idly searched to se
 
 ## General disclaimer
 
-All opinions expressed on this site are my own, and in now way reflect the opinions of my employer. Please do not take anything written here too seriously, and if anything offends or rankles, please reach out as soon as possible - I'm always keen to listen to new perspectives and ideas.
+All opinions expressed on this site are my own, and in no way reflect the opinions of my employer. Please do not take anything written here too seriously, and if anything offends or rankles, please reach out as soon as possible - I'm always keen to listen to new perspectives and ideas.
 
 [^1]: I jest - my significant other claims to love it when I ramble on about whatever is filling up my head. In her words "it really helps me to get to sleep".
