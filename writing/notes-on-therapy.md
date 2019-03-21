@@ -34,3 +34,7 @@ For example, given a trigger of "I played some wrong notes during a solo in a ja
 - Wanting to quit music altogether.
 
 In this scenario, although the trigger is "valid" to some degree (I might have really played a wrong note), the thoughts that arrived in response are not valid. For example, the thought "I am bad at playing music" is probably patently false - but is a reaction to playing a single wrong note. If that thought can be captured, made external, or expressed separately from the person, then it can be analysed and the subsequent negative emotions, bodily reactions, and behaviour can also be addressed.
+
+## Mood log.
+
+My therapist has (as of 2019-03-21) requested that I keep a mood log. The aim here is to help identify the actions/triggers that cause negative intrusive thoughts to try and discover if there is a pattern to them. This ties into the above cycle. In order to help address it, we need to not when and how the cycle starts and the emotions that result from it.
