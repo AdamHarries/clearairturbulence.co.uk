@@ -27,4 +27,4 @@ The Marines Melodious[^3]
 
 [^1]: Note - I haven't played all of these games, but as I understand it they aim to provide a similar level of balance, and occupy similar niches to 40,000 - with some tweaks in either direction.
 [^2]: [Your Dudes, 1d4chan](https://1d4chan.org/wiki/Your_Dudes) - Note, 1d4chan can be a little bit NSFW at times.
-[^3]: Whose name is *definitely* not a play on [these guys...](https://warhammer40k.fandom.com/wiki/Marines_Malevolent)
+[^3]: Whose name is *definitely* not a ripoff on [these guys...](https://warhammer40k.fandom.com/wiki/Marines_Malevolent)
