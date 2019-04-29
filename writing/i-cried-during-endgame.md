@@ -3,7 +3,7 @@ title: I cried during Endgame.
 tags: media, culture, films, tv, emotions, nerd shit
 date: 2019-04-29
 unfinished: true
-abstract: I cried during Avengers: Endgame. Here, like a big nerd baby, I try to justify it.
+abstract: I cried during Avengers Endgame. Here, like a big nerd baby, I try to justify it.
 ---
 
 At the "Vue" cinema chain there's a [short film](https://www.youtube.com/watch?v=uwcKrVJatf8) that runs before the main showing with the message that "this is not a cinema". At its core, it's just an advert for the other events that are shown at the cinema - such as concerts, ballet, theatre, etc. The message is that although, yes, this is *technically* a cinema, what is shown is not just traditional "films". It seems auspicious, therefore, that I watched Avengers: Endgame at the Vue cinema in the Edinburgh Omni, and that short film ran immediately before.
