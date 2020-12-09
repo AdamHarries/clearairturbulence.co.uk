@@ -15,8 +15,6 @@ The other reason we teach various variations is very historical. Collegiate Shag
 
 Getting to grips with different footwork patterns, and mixing and matching them is a really great way to improve your shag dancing by yourself. Just try a few of the ones in the videos in front of the mirror, and try to combine and alter them!
 
-Hopefully what I've written has been helpful, and at least slightly interesting.
-
 [^1]: [Hot Rhythm Holiday 2017 Collegiate Shag Invitational](https://www.youtube.com/watch?v=scCg-K1GC1I)
 
 [^2]: [Arthur Murray Shag - How To Shag (1937)
