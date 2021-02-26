@@ -61,7 +61,7 @@ There were a few things that I found difficult while writing this:
 - The Repl is annoying in a number of ways: It doesn't support "arrow keys"[^arrowkeys] for editing/reusing previous lines, and a number of Idris statements, such as `import Data.Vect` require repl-specific commands such as `:module Data.Vect`. As the repl is not in the IO monad, printing things is quite annoying: The default behaviour is to dump a syntax tree of the actual Idris expression, rather than evaluating it. 
 - Finding the types or definitions of standard library functions (or even whether or not they actually exist!) is a huge pain that requires searching through the source code of the standard library. As I understand it, it should be possible to generate documentation [but it is not currently happening](https://www.reddit.com/r/Idris/comments/k25r06/where_can_i_find_standard_library_docs/gds9339). I think this would be a huge win for productivity in Idris, as it was a pain point that I felt repeatedly while using the language. Even having the ability to generate documentation locally would be a huge help, even if it is not hosted elsewhere. 
 
-Overall, however, I really enjoyed solving the first day's problem in Idris. Although there were a lot of rough edges tooling-wise, the language felt fresh and well thought out, and it was surprisingly fast! I've been itching to try and do some performance optimisation on Idris for a while (Rust backend anyone?), but from actually using it I'm not sure it's really that necessary. I found the strange inability to refer to definitions later in a file quite annoying (I like to put my `main` function at the top, and build a dependency tree down the file), but judicious (if nasty) use of `mutual` solved that. The only other (minor) gripe I had was a lack of automatic formatter for Idris code. As a newbie, I feel like I'm almost certainly writing very non-idiomatic code, and formatting it really weirdly (when I even bother to!). Having an auto-formatter would make everything a lot more readable and consistent, and definitely speed up my development. 
+Overall, however, I really enjoyed solving the first day's problem in Idris. Although there were a lot of rough edges tooling-wise, the language felt fresh and well thought out, and it was surprisingly fast! I've been itching to try and do some performance optimisation on Idris for a while (Rust backend anyone?), but from actually using it I'm not sure it's really that necessary. I found the strange inability to refer to definitions later in a file quite annoying (I like to put my `main` function at the top, and build a dependency tree down the file), but judicious (if nasty) use of `mutual` solved that. As I understand it, the requirement that definitions are in a specific order is related to the way Idris' typechecker works, and required for type-checking a dependently typed language, so I can easily forgive it! The only other (minor) gripe I had was a lack of automatic formatter for Idris code. As a newbie, I feel like I'm almost certainly writing very non-idiomatic code, and formatting it really weirdly (when I even bother to!). Having an auto-formatter would make everything a lot more readable and consistent, and definitely speed up my development. 
 
 # Day 2 
 
@@ -79,7 +79,7 @@ The first task here was to write a parser for a constraint/password pair. As I'm
 
 To start with, I chose to use these specific libraries as I was confident of their quality and that they would play nice with Idris 2. My basis for this was that **they are what the Idris 2 compiler uses**, so they should *definitely* work with the newer version of the language[^selfhosting], unlike the other existing third-party parser combinator libraries available which are mostly written in Idris 1 and thus not guaranteed to work with Idris 2.
 
-Using the libraries, however, was incredibly painful. Like most other Idris 2 libraries they are under documented (and documentation is only viewable through the source code), and I found working out what parts I needed, and in what order, to be a difficult endeavour. I did, however, quickly find [this brilliant tutorial](http://docs.idris-lang.org/en/latest/parserLibrary/) on using the library which was enough to get me to a working lexer. For the parser[^directparsing], however, the tutorial quickly diverged from what I was looking to implement, and I ended up looking through the source code of the Idris compiler to work out how to use the parsing library. My lexer/parser combination ended up being far more verbose than I was hoping for, but once I managed to conquer it I was much happier using the libraries for Day 3 as well. 
+Using the libraries, however, was incredibly painful. Like most other Idris 2 libraries they are under documented (and documentation is only viewable in the source code, or repl as I later discovered), and I found working out what parts I needed, and in what order, to be a difficult endeavour. I did, however, quickly find [this brilliant tutorial](http://docs.idris-lang.org/en/latest/parserLibrary/) on using the library which was enough to get me to a working lexer. For the parser[^directparsing], however, the tutorial quickly diverged from what I was looking to implement, and I ended up looking through the source code of the Idris compiler to work out how to use the parsing library. My lexer/parser combination ended up being far more verbose than I was hoping for, but once I managed to conquer it I was much happier using the libraries for Day 3 as well. 
 
 Outside of the direct in-language use of the libraries, I also found it quite difficult to tell the Idris compiler that I actually *wanted* to use the libraries. I eventually discerned that there are two ways to do this: 
 
@@ -110,17 +110,20 @@ index FZ     (x::_)  = x
 index (FS k) (_::xs) = index k xs
 ```
 
-Note the type of this function: It takes a `Fin len`, and a `Vect len elem` and returns an `elem`. Intuitively, this means that it takes a "Finite" number bounded by `len` (i.e. we know that it will be less than `len`), and a vector of length `len` with element type `elem`, and returns an element. The beauty of this type is that we know that *every* permissable value of type `Fin len` will be a valid index for the vector as they are guaranteed (by the type system) to be less than the length.
+Note the type of this function: It takes a `Fin len`, and a `Vect len elem` and returns an `elem`. This means that it takes a "Finite" number bounded by `len` (i.e. we know that it will be less than `len`), and a vector of length `len` with element type `elem`, and returns an element. The beauty of this type is that we know that *every* permissable value of type `Fin len` will be a valid index for the vector as they are guaranteed (by the type system) to be less than the length.
 
-Idris goes a long way towards making dependent types ergonomic and usable for real-world programs[^adventcalendar] but it does sometimes slip up and fail to help when the compiler needs help itself. One place where I found this was while implementing a function to tranform a `Nat` (Natural number) into a possible index `Fin len` by computing the modulo of the length[^modull]. My first attempt went something like this: 
+Idris goes a long way towards making dependent types ergonomic and usable for real-world programs[^adventcalendar] but it does occasionally slip up and fail to help when the compiler needs help itself. One place where I found this was while implementing a function to tranform a `Nat` (Natural number) `n` into a possible index `Fin len` by computing the modulo `n % len`[^modull] which is guaranteed to be a valid element of `Fin len`. My first attempt went something like this: 
 
 ```idris
+-- Set a concrete bound, minus one
 lenMo : Nat 
 lenMo = 30
 
+-- Set a concrete bound in terms of len - 1
 len : Nat 
 len = S lenMo
 
+-- Calculate an index bounded by `len` from `n`
 ix : Nat -> (Fin len)
 ix n = restrict (lenMo) (cast n)
 ```
@@ -160,25 +163,77 @@ Mismatch between: len and S lenMo.
     |       ^^^^
 ```
 
-Err. What? But we know that they're the same, don't we? Well, dear reader, we do - and so does Idris! However, we can't directly write this proof down (I'm not sure why, maybe it's too simple?), but we can ask Idris to *search* for it. To cut a long story short (and ignore some other diversions), this is what I ended up with: 
+Err. What? But we know that they're the same, don't we? Well, dear reader, we do - and so does Idris! However, we can't directly write this proof down (I'm not sure why, maybe it's too simple?), but we can ask Idris to *search* for it. To cut a long story short (and ignore some other diversions that were of my own doing), this is what I ended up with: 
 
 ```idris
+-- Set a concrete bound
 len : Nat 
 len = 31
 
+-- Calculate an index bounded by `len` from `n`
 ix : {lenMo: _} -> Nat -> {auto prf: len = S lenMo} -> (Fin len)
 ix n = rewrite prf in restrict lenMo (cast n)
 ```
 
-Essentially, we give the `ix` function a "temporary" (I think? Or implicit?) `lenMo` in the type, and also ask it through the use of `auto` to search for a proof that `len = S lenMo`. Given that proof `prf`, we *rewrite* the type of our restrict using the proof to demonstrate equality, which gives us the right type. 
+Essentially, we give the `ix` function an implicit argument `lenMo` in the type, and also ask it (through the use of `auto`) to *search* for a proof that `len = S lenMo`. Given that proof `prf`, we can *rewrite* the type of our restrict using the proof to demonstrate equality, which gives us the right type. 
 
 Phew. 
 
-Overall, I found this really tough to implement. Firstly, I'm still getting to grips with dependent types and proof assistants which meant that there were quite a few *"WHY WON'T YOU BLOODY WORK, IT'S OBVIOUS THEY'RE EQUAL!!"* moments. Secondly, features such as automatic proof construction seemed obscure and I only found in an (now forgotten) stack overflow answer. This is something where I think more ergonomic compiler error messages would be very useful. For example, adding (in the original error) a suggestion to add a proof search if Idris can unify the two expressions automatically would go a long way towards pointing out features that a user might miss. 
+Overall, I found this really tough to implement. Firstly, I'm still getting to grips with dependent types and proof assistants which meant that there were quite a few *"WHY WON'T YOU BLOODY WORK, IT'S OBVIOUS THEY'RE EQUAL!!"* moments. Secondly, features such as automatic proof construction seemed obscure and I only found in an (now forgotten) stack overflow answer. This is something where I think more ergonomic compiler error messages would be very useful. For example, adding (in the original error) a suggestion to add a proof search if Idris can unify the two expressions automatically would go a long way towards pointing out features that a user might miss. *(Edit: I have since found [this documentation](http://docs.idris-lang.org/en/latest/tutorial/miscellany.html?highlight=auto%20#auto-implicit-arguments) which explains exactly what I should have been using. It's definitely my fault for not finding this documentation, but my comments about error messages still stands.)*
 
-As with the parsing and lexing libraries, this exploration into the proving side of dependent types has definitely taught me a lot, and I'm sure I'll be able to put it to good use later. Unlike with the libraries, however, I'm not sure how I could have learned it any faster, or got out of the problems any faster. More up to date documentation (and by more, I mean *quantity*, not *recentness*) on writing proofs in Idris 2 would definitely be useful, and more verbose compiler errors with suggestions a-la the Rust compiler would also be very helpful, but both are very heavyweight solutions that I'm not sure would really pay off. 
+As with the parsing and lexing libraries, this exploration into the proving side of dependent types has definitely taught me a lot, and I'm sure I'll be able to put it to good use later. Unlike with the libraries, however, I'm not sure how I could have learned it any faster, or got out of the problems any faster. More up to date documentation (and by more, I mean *quantity*, not *recentness*) on writing proofs in Idris 2 would definitely be useful, and more verbose compiler errors with suggestions a-la the Rust compiler would also be very helpful, but both are very heavyweight solutions that I'm not sure would really pay off.
+
+*Edit: Since writing this, I've found a number of other pieces of documentation that I hadn't come across, such as [this page](http://docs.idris-lang.org/en/latest/tutorial/miscellany.html?highlight=auto%20#auto-implicit-arguments), which explores auto implicit arguments. In many ways, this is exactly the up-to-date documentation that I was asking for above, however it wish it was closer to the documentation on theorem proving, as it's quite a central aspect to that it seems.*
 
 # Day 4
+
+Day 4 was my first try at using Edwin's concept of "Type-driven Development", and with Idris it is a really pleasant way to develop! I started off by defining a very simple token type for the various possible input fields, parameterised by strings, that looked something like this: 
+
+```idris 
+data PassportEntry = BirthYear String 
+    | IssueYear String
+    | ExpriationYear String
+    | Height String
+    | HairColour String
+    | EyeColour String 
+    | PassportID String 
+    | CountryID String 
+```
+
+However, I quickly found that having explicit constructors for every kind of entry that I needed got quite cumbersome. Enter dependent types!
+
+```idris
+keys : List String
+keys = ["byr","iyr","eyr","hgt","hcl","ecl","pid","cid"]
+
+record PassportEntry (key: String) where 
+    constructor MkPassportEntry
+    value : String 
+
+export 
+implementation {k: String} -> Show (PassportEntry k) where 
+    show e = k ++ ":" ++ (value e)
+```
+
+This gives us (essentially) exactly the same implementation, but with a much nicer path for implementing functions where we want to be able to print the key for the entry. Instead of having to pattern match over every constructor, we can instead directly use the string that we use to parameterise the type `PassportEntry`, and use that to fill out functions like `show`.
+
+Not five minutes later, I realised that this was a terrible idea, as it forced us to make every list of `PassportEntry` have a hetrogenous type (e.g. birth year), which is counterproductive. Instead, I'm just going to store the key as a string in the record, i.e.: 
+
+```idris
+keys : List String
+keys = ["byr","iyr","eyr","hgt","hcl","ecl","pid","cid"]
+
+record PassportEntry where 
+    constructor MkPassportEntry
+    key : String
+    value : String 
+
+export 
+implementation Show PassportEntry where 
+    show e = (key e) ++ ":" ++ (value e)
+```
+
+This has basically the same utility5, but without the typing issue. 
 
 ```C
 // TODO: Not implemented yet
